@@ -218,6 +218,13 @@ function wfTinymceParserPaste ($q, $text) {
                                 $tinymcetext = str_replace($a[0], html_entity_decode($r), $tinymcetext);
                         }
                 #==heading 1==
+			while (preg_match("|=[A-z0-9\s'.-]+=|is", $tinymcetext, $a)) {
+                                $value = implode(",", $a);
+                                $value = str_replace("=", "", $value);
+                                $r = preg_replace("|=[A-z0-9\s'.-]+=|is", "<h1 class='firstHeading'>".$value."</h1>", $a[0]);
+                                $tinymcetext = str_replace($a[0], html_entity_decode($r), $tinymcetext);
+                        }
+		
                 ## Does not support <h1> tags because "|=.*?=|is" grabs too much
                 #---- horizontal line
                         while (preg_match("|----|is", $tinymcetext, $a)) {
