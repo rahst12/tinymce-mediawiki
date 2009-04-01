@@ -1,0 +1,28 @@
+#summary Installation of TinyMCE Extension into MediaWiki.
+
+= Introduction =
+
+Hopefully these are easy to follow steps.  They initially came from here:http://www.mediawiki.org/wiki/Extension:TinyMCE_MW
+
+
+= Details =
+
+  # Download the [http://tinymce.moxiecode.com/download.php TinyMCE Main Package] and unzip into your MediaWiki extensions path (the result should look like ..\Yourwiki\extensions\tinymce\...)
+  # Download tinymce.php from the source trunk.
+  # Add the following lines to LocalSettings.php:
+{{{
+# TinyMCE_MW.php: Easily implement Moxiecode's TinyMCE into MediaWiki
+$wgUseTinymce = true;#Init needed for clicking on a new article link
+$wgDefaultUserOptions ['showtoolbar'] = 0;  #new users get this default or modify DefaultSetting.php
+$wgTinymceTheme = "msword";                 #"simple", "advanced", "msword", else none
+$wgMyWikiURL = "http://$wgDBserver/$wgScriptPath/index.php/";
+$wgExt_valid_elements = "data[table|template],repeat[table|sort],categorytree[mode|depth],inputbox[type|bgcolor|width|default|preload|editintro|buttonlabel|searchbuttonlabel|break], big";
+require_once("$IP/extensions/TinyMCE_MW.php");
+}}}
+
+=== Parameters ===
+||$wgUseTinymce ||True to enable TinyMCE by default, False if not.||
+||$wgDefaultUserOptions ['showtoolbar']||0 = Mediawiki edit toolbar disabled for new users,<br>1 = Mediawiki edit toolbar enabled for new users<br>To disable the Mediawiki editor toolbar instantly you must modify DefaultSettings.php||
+||$wgTinymceTheme||"simple", "advanced", "msword", else none<br>This tells TinyMCE which theme you want to use.  You may see how things work by looking at TinyMCE_MW.php||
+||$wgMyWikiURL||This is used to set your default path so TinyMCE linking works.||
+||$wgExt_valid_elements||Pass your [http://wiki.moxiecode.com/index.php/TinyMCE:Configuration/extended_valid_elements extended_valid_elements] using this global variable.||
