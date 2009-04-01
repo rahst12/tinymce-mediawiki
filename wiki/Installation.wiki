@@ -7,7 +7,7 @@ Hopefully these are easy to follow steps.  They initially came from here:http://
 
 = Details =
 
-  # Download the [http://tinymce.moxiecode.com/download.php TinyMCE Main Package] and unzip into your MediaWiki extensions path (the result should look like ..\Yourwiki\extensions\tinymce\...)
+  # Download the [http://tinymce.moxiecode.com/download.php TinyMCE Main Package] and unzip into your MediaWiki extensions path: ..\Yourwiki\extensions\tinymce\TinyMCE
   # Download tinymce.php from the source trunk.  Put it in: ..\Yourwiki\extensions\tinymce\
   # Add the following lines to LocalSettings.php:
 {{{
