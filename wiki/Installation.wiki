@@ -4,6 +4,8 @@
 
 Hopefully these are easy to follow steps.  They initially came from here:http://www.mediawiki.org/wiki/Extension:TinyMCE_MW
 
+More info: http://www.mediawiki.org/wiki/WYSIWYG_editor#TinyMCE
+
 
 = Details =
 
